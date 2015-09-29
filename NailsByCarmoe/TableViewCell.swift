@@ -62,7 +62,7 @@ class TableViewCell: UITableViewCell {
 }
 
 extension TableViewCell: UITextViewDelegate {
-    func textViewDidChange(textView: UITextView!) {
+    func textViewDidChange(textView: UITextView) {
         
         let size = textView.bounds.size
         let newSize = textView.sizeThatFits(CGSize(width: size.width, height: CGFloat.max))
