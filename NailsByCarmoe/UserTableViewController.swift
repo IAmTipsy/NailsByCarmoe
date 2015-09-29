@@ -79,14 +79,14 @@ class UserTableViewController: UITableViewController {
         return cell
         
     }
-    /*
+    
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         if indexPath.section == 3 {
             return 100
         } else {
             return 44
         }
-    }*/
+    }
 
     /*
     // Override to support conditional editing of the table view.
