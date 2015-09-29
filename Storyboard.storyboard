@@ -58,15 +58,15 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="srv-Pe-rsI">
-                                            <rect key="frame" x="67" y="4" width="240" height="128"/>
-                                            <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                            <rect key="frame" x="8" y="4" width="359" height="128"/>
+                                            <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                         </textView>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="srv-Pe-rsI" firstAttribute="centerX" secondItem="BRi-zY-yIb" secondAttribute="centerX" id="Qly-tP-AiV"/>
-                                        <constraint firstItem="srv-Pe-rsI" firstAttribute="leading" secondItem="BRi-zY-yIb" secondAttribute="leadingMargin" constant="59" id="XjH-32-b32"/>
+                                        <constraint firstItem="srv-Pe-rsI" firstAttribute="leading" secondItem="BRi-zY-yIb" secondAttribute="leadingMargin" id="XjH-32-b32"/>
                                         <constraint firstItem="srv-Pe-rsI" firstAttribute="top" secondItem="BRi-zY-yIb" secondAttribute="topMargin" constant="-4" id="fAw-f4-fY1"/>
                                         <constraint firstItem="srv-Pe-rsI" firstAttribute="centerY" secondItem="BRi-zY-yIb" secondAttribute="centerY" id="k2X-lU-Zb9"/>
                                     </constraints>
@@ -104,7 +104,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2uG-PC-zaA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2312.8125" y="359.68309859154925"/>
+            <point key="canvasLocation" x="2312.5" y="359.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="s2n-ts-dQe">

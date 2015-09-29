@@ -8,7 +8,19 @@
 
 import UIKit
 
-
+extension UITableViewCell {
+    /// Search up the view hierarchy of the table view cell to find the containing table view
+    var tableView: UITableView? {
+        get {
+            var table: UIView? = superview
+            while !(table is UITableView) && table != nil {
+                table = table?.superview
+            }
+            
+            return table as? UITableView
+        }
+    }
+}
 
 class UserTableViewController: UITableViewController {
 
@@ -19,7 +31,9 @@ class UserTableViewController: UITableViewController {
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-       
+        tableView.estimatedRowHeight = 44.0 // Replace with your actual estimation
+        // Automatic dimensions to tell the table view to use dynamic height
+        tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.reloadData()
     }
 
@@ -63,7 +77,7 @@ class UserTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCellWithIdentifier("uCell", forIndexPath: indexPath)
+        // let cell = tableView.dequeueReusableCellWithIdentifier("uCell", forIndexPath: indexPath)
 
         // Configure the cell...
         //print(indexPath.row)
@@ -71,22 +85,23 @@ class UserTableViewController: UITableViewController {
         
         if indexPath.section == 3 {
             
-           let cell: TableViewCell = self.tableView.dequeueReusableCellWithIdentifier("cellText", forIndexPath: indexPath) as! TableViewCell
-        
-            cell.TextViewOutlet.text = "DETTE ER EN TEST"
+           let tcell: TableViewCell = self.tableView.dequeueReusableCellWithIdentifier("cellText", forIndexPath: indexPath) as! TableViewCell
+            tcell.TextViewOutlet.text = "DETTE ER EN TEST"
+            
+            return tcell
+        } else {
+            let cell = tableView.dequeueReusableCellWithIdentifier("uCell", forIndexPath: indexPath)
+            return cell
         }
-
-        return cell
-        
     }
     
-    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    /*override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         if indexPath.section == 3 {
             return 100
         } else {
             return 44
         }
-    }
+    }*/
 
     /*
     // Override to support conditional editing of the table view.
