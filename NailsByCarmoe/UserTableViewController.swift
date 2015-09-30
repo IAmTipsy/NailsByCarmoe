@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import CoreData
+
+var currentDate = ""
 
 extension UITableViewCell {
     /// Search up the view hierarchy of the table view cell to find the containing table view
@@ -22,15 +25,51 @@ extension UITableViewCell {
     }
 }
 
-class UserTableViewController: UITableViewController {
+class UserTableViewController: UITableViewController, UITextFieldDelegate {
 
+    var nameHidden = true
+    var numberHidden = true
+    var emailHidden = true
+    
+    var name = ""
+    var number = ""
+    var email = ""
+    var text = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+        if currentUser != "new" {
+            let appDel: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+            let context: NSManagedObjectContext = appDel.managedObjectContext
+            var request = NSFetchRequest(entityName: "Costumers")
+            request.predicate = NSPredicate(format: "name = %@", currentUser)
+            request.returnsObjectsAsFaults = false
+            do {
+                let results = try context.executeFetchRequest(request)
+                if results.count > 0 {
+                    for result in results as! [NSManagedObject] {
+                        if let username = result.valueForKey("name") as? String{
+                            name = username
+                        }
+                        if let useremail = result.valueForKey("mail") as? String{
+                            email = useremail
+                        }
+                        if let usertelephone = result.valueForKey("telephone") as? String{
+                            number = usertelephone
+                        }
+                        if let usertext = result.valueForKey("text") as? String{
+                            text = usertext
+                        }
+                    }
+                }
+            } catch {
+                print("Fetch Failed")
+            }
+            
+            tableView.reloadData()
+        }
+        
         tableView.estimatedRowHeight = 44.0 // Replace with your actual estimation
         // Automatic dimensions to tell the table view to use dynamic height
         tableView.rowHeight = UITableViewAutomaticDimension
@@ -63,6 +102,8 @@ class UserTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 4 {
             return 5
+        } else if section < 3 {
+            return 2
         } else {
             return 1
         }
@@ -100,69 +141,88 @@ class UserTableViewController: UITableViewController {
             tcell.TextViewOutlet.text = "DETTE ER EN TEST"
             
             return tcell
+        } else if indexPath.section < 3 && indexPath.row == 1{
+            
+            let fcell: TextFieldCell = self.tableView.dequeueReusableCellWithIdentifier("cellField", forIndexPath: indexPath) as! TextFieldCell
+            
+            if indexPath.section == 0 {
+                fcell.TextFieldOut.placeholder = "Skriv Navn"
+                fcell.TextFieldOut.text = name
+                fcell.TextFieldOut.tag = 0
+            } else if indexPath.section == 1 {
+                fcell.TextFieldOut.placeholder = "Skriv Nummer"
+                fcell.TextFieldOut.keyboardType = UIKeyboardType.PhonePad
+                fcell.TextFieldOut.text = number
+                fcell.TextFieldOut.tag = 1
+            } else {
+                fcell.TextFieldOut.placeholder = "Skriv Email"
+                fcell.TextFieldOut.keyboardType = UIKeyboardType.EmailAddress
+                fcell.TextFieldOut.text = email
+                fcell.TextFieldOut.tag = 2
+            }
+            
+            return fcell
         } else {
             let cell = tableView.dequeueReusableCellWithIdentifier("uCell", forIndexPath: indexPath)
+            if indexPath.section == 0 {
+                cell.textLabel?.text = name
+            } else if indexPath.section == 1 {
+                cell.textLabel?.text = number
+            } else if indexPath.section == 2 {
+                cell.textLabel?.text = email
+            }
             return cell
         }
+        
     }
     
-    /*override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        if indexPath.section == 3 {
-            return 100
-        } else {
-            return 44
-        }
-    }*/
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            // Delete the row from the data source
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
+    
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        if indexPath.section == 0 && indexPath.row == 0 {
+            toggleTextField("name")
+        } else if indexPath.section == 1 && indexPath.row == 0 {
+            toggleTextField("number")
+        } else if indexPath.section == 2 && indexPath.row == 0 {
+            toggleTextField("email")
+        }
+    }
+    
+    func toggleTextField(toggle: String) {
         
-        print(indexPath.section)
+        if toggle == "name"{
+        
+            nameHidden = !nameHidden
+            numberHidden = true
+            emailHidden = true
+            
+        } else if toggle == "number" {
+            nameHidden = true
+            numberHidden = !numberHidden
+            emailHidden = true
+        } else if toggle == "email" {
+            nameHidden = true
+            numberHidden = true
+            emailHidden = !emailHidden
+        }
+        
+        tableView.beginUpdates()
+        tableView.endUpdates()
         
     }
-
+    
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        if nameHidden && indexPath.section == 0 && indexPath.row == 1 {
+            return 0
+        } else if numberHidden && indexPath.section == 1 && indexPath.row == 1 {
+            return 0
+        } else if emailHidden && indexPath.section == 2 && indexPath.row == 1 {
+            return 0
+        }
+        else {
+            return super.tableView(tableView, heightForRowAtIndexPath: indexPath)
+        }
+    }
+    
+    
 }

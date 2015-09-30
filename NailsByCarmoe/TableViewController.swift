@@ -8,6 +8,8 @@
 
 import UIKit
 
+var currentUser = ""
+
 class TableViewController: UITableViewController, UISearchResultsUpdating {
 
     let users = ["Mac", "Windows", "Linux", "Raspberry Pi"]

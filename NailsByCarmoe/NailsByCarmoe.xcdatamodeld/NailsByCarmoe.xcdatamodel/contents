@@ -3,6 +3,7 @@
     <entity name="Appointments" syncable="YES">
         <attribute name="date" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="price" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="text" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="Costumers" syncable="YES">
@@ -12,7 +13,7 @@
         <attribute name="text" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
+        <element name="Appointments" positionX="-54" positionY="18" width="128" height="105"/>
         <element name="Costumers" positionX="-63" positionY="-18" width="128" height="105"/>
-        <element name="Appointments" positionX="-54" positionY="18" width="128" height="90"/>
     </elements>
 </model>

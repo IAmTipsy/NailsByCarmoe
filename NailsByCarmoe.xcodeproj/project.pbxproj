@@ -12,6 +12,7 @@
 		9B7699D51BB3D5E6003B6A5A /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B7699D41BB3D5E6003B6A5A /* TableViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		9B7699D71BB3E16B003B6A5A /* UserTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B7699D61BB3E16B003B6A5A /* UserTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		9B7699D91BB4047B003B6A5A /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B7699D81BB4047B003B6A5A /* TableViewCell.swift */; settings = {ASSET_TAGS = (); }; };
+		9B7A7A531BBB26EA009523F8 /* TextFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B7A7A521BBB26EA009523F8 /* TextFieldCell.swift */; settings = {ASSET_TAGS = (); }; };
 		9BEE64AA1BB30DAA001F2D9F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BEE64A91BB30DAA001F2D9F /* AppDelegate.swift */; };
 		9BEE64B21BB30DAA001F2D9F /* NailsByCarmoe.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9BEE64B01BB30DAA001F2D9F /* NailsByCarmoe.xcdatamodeld */; };
 		9BEE64B41BB30DAA001F2D9F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9BEE64B31BB30DAA001F2D9F /* Assets.xcassets */; };
@@ -24,6 +25,7 @@
 		9B7699D41BB3D5E6003B6A5A /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		9B7699D61BB3E16B003B6A5A /* UserTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTableViewController.swift; sourceTree = "<group>"; };
 		9B7699D81BB4047B003B6A5A /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		9B7A7A521BBB26EA009523F8 /* TextFieldCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldCell.swift; sourceTree = "<group>"; };
 		9BEE64A61BB30DAA001F2D9F /* NailsByCarmoe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NailsByCarmoe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BEE64A91BB30DAA001F2D9F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9BEE64B11BB30DAA001F2D9F /* NailsByCarmoe.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = NailsByCarmoe.xcdatamodel; sourceTree = "<group>"; };
@@ -66,6 +68,7 @@
 				9B577E531BBA8EF6007D3B57 /* AppointmentTableViewController.swift */,
 				9B7699D61BB3E16B003B6A5A /* UserTableViewController.swift */,
 				9B7699D81BB4047B003B6A5A /* TableViewCell.swift */,
+				9B7A7A521BBB26EA009523F8 /* TextFieldCell.swift */,
 				9B7699D41BB3D5E6003B6A5A /* TableViewController.swift */,
 				9BEE64A91BB30DAA001F2D9F /* AppDelegate.swift */,
 				9BEE64B31BB30DAA001F2D9F /* Assets.xcassets */,
@@ -151,6 +154,7 @@
 				9B7699D51BB3D5E6003B6A5A /* TableViewController.swift in Sources */,
 				9B7699D71BB3E16B003B6A5A /* UserTableViewController.swift in Sources */,
 				9BEE64AA1BB30DAA001F2D9F /* AppDelegate.swift in Sources */,
+				9B7A7A531BBB26EA009523F8 /* TextFieldCell.swift in Sources */,
 				9B577E541BBA8EF6007D3B57 /* AppointmentTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
